@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Smartphone, ChevronRight, WifiOff, Zap, Users, CheckCircle2 } from 'lucide-react';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
+import Waitlist from '../../components/Waitlist';
+import { Link } from '../../i18n/routing';
 
 export default function Home() {
   const tHero = useTranslations('Hero');
@@ -15,7 +17,9 @@ export default function Home() {
       
       {/* HEADER */}
       <header className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto w-full z-20">
-        <div className="text-2xl font-black text-white tracking-tighter">CORTEX<span className="text-gray-600">FIN</span></div>
+        <Link href="/" className="text-2xl font-black text-white tracking-tighter hover:opacity-80 transition-opacity">
+          CORTEX<span className="text-gray-600">FIN</span>
+        </Link>
         <div className="flex items-center">
           <LanguageSwitcher />
           <button className="bg-white text-black px-5 py-2 rounded-md font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
@@ -24,156 +28,63 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO SECTION */}
       <main className="flex flex-col items-center justify-center text-center px-6 relative z-20 pt-20 pb-32">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 blur-[120px] rounded-full pointer-events-none" />
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-4xl mx-auto"
-        >
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="max-w-4xl mx-auto">
           <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-xs font-bold text-gray-400 mb-8 uppercase tracking-widest backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
             <span>{tHero('betaStatus')}</span>
           </div>
-          
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">
-            {tHero('title1')} <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-600">
-              {tHero('title2')}
-            </span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed">
-            {tHero('subtitle')}
-          </p>
-          
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">{tHero('title1')} <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-600">{tHero('title2')}</span></h1>
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed">{tHero('subtitle')}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <motion.button 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-white text-[#121212] px-8 py-4 rounded-lg font-black flex items-center justify-center transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)]"
-            >
-              <Smartphone className="mr-2 h-5 w-5" />
-              {tHero('downloadBtn')}
-            </motion.button>
-
-            <motion.button 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-[#181818] border border-gray-800 text-white px-8 py-4 rounded-lg font-bold flex items-center justify-center hover:border-gray-500 transition-colors"
-            >
-              {tHero('exploreBtn')} <ChevronRight className="ml-2 h-5 w-5 text-gray-500" />
-            </motion.button>
+            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="bg-white text-[#121212] px-8 py-4 rounded-lg font-black flex items-center justify-center transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)]"><Smartphone className="mr-2 h-5 w-5" />{tHero('downloadBtn')}</motion.button>
+            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="bg-[#181818] border border-gray-800 text-white px-8 py-4 rounded-lg font-bold flex items-center justify-center hover:border-gray-500 transition-colors">{tHero('exploreBtn')} <ChevronRight className="ml-2 h-5 w-5 text-gray-500" /></motion.button>
           </div>
         </motion.div>
       </main>
 
-      {/* FEATURES BENTO GRID */}
       <section className="relative z-20 bg-[#0a0a0a] border-t border-[#1E1E1E] py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-black text-white mb-16 text-center tracking-tight"
-          >
-            {tFeatures('sectionTitle')}
-          </motion.h2>
-
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-5xl font-black text-white mb-16 text-center tracking-tight">{tFeatures('sectionTitle')}</motion.h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-[#121212] p-8 rounded-2xl border border-[#1E1E1E] hover:border-gray-600 transition-colors group"
-            >
-              <div className="bg-[#1a1a1a] w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <WifiOff className="h-6 w-6 text-gray-300" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">{tFeatures('offlineTitle')}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed font-medium">{tFeatures('offlineDesc')}</p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-[#121212] p-8 rounded-2xl border border-[#1E1E1E] hover:border-gray-600 transition-colors group"
-            >
-              <div className="bg-[#1a1a1a] w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Zap className="h-6 w-6 text-gray-300" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">{tFeatures('syncTitle')}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed font-medium">{tFeatures('syncDesc')}</p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-[#121212] p-8 rounded-2xl border border-[#1E1E1E] hover:border-gray-600 transition-colors group"
-            >
-              <div className="bg-[#1a1a1a] w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Users className="h-6 w-6 text-gray-300" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">{tFeatures('sharedTitle')}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed font-medium">{tFeatures('sharedDesc')}</p>
-            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="bg-[#121212] p-8 rounded-2xl border border-[#1E1E1E] hover:border-gray-600 transition-colors group"><div className="bg-[#1a1a1a] w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><WifiOff className="h-6 w-6 text-gray-300" /></div><h3 className="text-xl font-bold text-white mb-3">{tFeatures('offlineTitle')}</h3><p className="text-gray-400 text-sm leading-relaxed font-medium">{tFeatures('offlineDesc')}</p></motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="bg-[#121212] p-8 rounded-2xl border border-[#1E1E1E] hover:border-gray-600 transition-colors group"><div className="bg-[#1a1a1a] w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Zap className="h-6 w-6 text-gray-300" /></div><h3 className="text-xl font-bold text-white mb-3">{tFeatures('syncTitle')}</h3><p className="text-gray-400 text-sm leading-relaxed font-medium">{tFeatures('syncDesc')}</p></motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="bg-[#121212] p-8 rounded-2xl border border-[#1E1E1E] hover:border-gray-600 transition-colors group"><div className="bg-[#1a1a1a] w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Users className="h-6 w-6 text-gray-300" /></div><h3 className="text-xl font-bold text-white mb-3">{tFeatures('sharedTitle')}</h3><p className="text-gray-400 text-sm leading-relaxed font-medium">{tFeatures('sharedDesc')}</p></motion.div>
           </div>
         </div>
       </section>
 
-      {/* PRO SECTION */}
       <section className="relative z-20 py-32 px-6 bg-[#121212]">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-6xl mx-auto bg-[#181818] rounded-3xl p-8 md:p-16 border border-[#2A2A2A] shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row items-center justify-between"
-        >
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="max-w-6xl mx-auto bg-[#181818] rounded-3xl p-8 md:p-16 border border-[#2A2A2A] flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 mb-12 md:mb-0">
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">{tPro('title')}</h2>
             <p className="text-gray-400 mb-8 max-w-md text-lg leading-relaxed">{tPro('subtitle')}</p>
             <div className="space-y-5">
-              {[tPro('feat1'), tPro('feat2'), tPro('feat3'), tPro('feat4'), tPro('feat5')].map((item, i) => (
-                <div key={i} className="flex items-center text-base font-medium text-gray-300">
-                  <CheckCircle2 className="h-6 w-6 mr-4 text-gray-500 shrink-0" />
-                  {item}
-                </div>
-              ))}
+              {[tPro('feat1'), tPro('feat2'), tPro('feat3'), tPro('feat4'), tPro('feat5')].map((item, i) => (<div key={i} className="flex items-center text-base font-medium text-gray-300"><CheckCircle2 className="h-6 w-6 mr-4 text-gray-500 shrink-0" />{item}</div>))}
             </div>
           </div>
-          
           <div className="md:w-1/3 w-full bg-[#121212] p-8 md:p-10 rounded-2xl border border-[#2A2A2A] text-center">
             <div className="text-sm font-bold text-gray-500 mb-4 uppercase tracking-widest">Premium</div>
-            <div className="text-6xl font-black text-white mb-2 tracking-tighter">
-              {tPro('price')}<span className="text-2xl text-gray-500 font-medium tracking-normal">{tPro('period')}</span>
-            </div>
+            <div className="text-6xl font-black text-white mb-2 tracking-tighter">{tPro('price')}<span className="text-2xl text-gray-500 font-medium tracking-normal">{tPro('period')}</span></div>
             <p className="text-sm text-gray-500 mb-10 font-medium">{tPro('annual')}</p>
-            <motion.button 
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="w-full bg-white text-black py-4 rounded-xl font-black text-lg hover:bg-gray-200 transition-colors"
-            >
-              {tPro('cta')}
-            </motion.button>
+            <button className="w-full bg-white text-black py-4 rounded-xl font-black text-lg hover:bg-gray-200 transition-colors">{tPro('cta')}</button>
           </div>
         </motion.div>
       </section>
 
-      {/* FOOTER */}
+      <Waitlist />
+
       <footer className="border-t border-[#1E1E1E] bg-[#0a0a0a] py-12 relative z-20">
         <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-sm font-medium">
-          <div className="font-black text-white text-2xl tracking-tighter mb-6 md:mb-0">
-            CORTEX<span className="text-gray-600">FIN</span> <span className="text-gray-500 text-sm font-medium tracking-normal ml-2">© 2026 {tFooter('rights')}</span>
-          </div>
+          <div className="font-black text-white text-2xl tracking-tighter mb-6 md:mb-0">CORTEX<span className="text-gray-600">FIN</span> <span className="text-gray-500 text-sm font-medium tracking-normal ml-2">© 2026 {tFooter('rights')}</span></div>
           <div className="flex space-x-8 text-gray-500">
-            <a href="#" className="hover:text-white transition-colors">{tFooter('faq')}</a>
+            <Link href="/faq" className="hover:text-white transition-colors">{tFooter('faq')}</Link>
             <a href="#" className="hover:text-white transition-colors">{tFooter('privacy')}</a>
             <a href="#" className="hover:text-white transition-colors">{tFooter('terms')}</a>
           </div>
         </div>
       </footer>
-
     </div>
   );
 }

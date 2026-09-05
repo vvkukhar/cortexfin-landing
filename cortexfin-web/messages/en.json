@@ -29,10 +29,27 @@
     "annual": "Or $80/year (Save 20%)",
     "cta": "Upgrade to Pro"
   },
+  "Waitlist": {
+    "title": "Join the Elite",
+    "subtitle": "Wislet is currently in closed Beta. Leave your email to get priority access before the public release.",
+    "placeholder": "ceo@empire.com",
+    "button": "Request Access"
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about CortexFin architecture and security.",
+    "q1": "Does it really work offline?",
+    "a1": "Yes. Wislet uses a local SQLite database. You can create transactions, wallets, and budgets with zero internet. It syncs in the background once you're online.",
+    "q2": "How secure is my data?",
+    "a2": "Bank-level security. PIN code and Biometrics (FaceID/TouchID) lock your app. Your cloud data is secured by Supabase RLS policies.",
+    "q3": "Can I share my budget with my partner?",
+    "a3": "Absolutely. You can invite members to specific wallets and assign them strict roles: Owner, Editor, or Viewer."
+  },
   "Footer": {
     "faq": "FAQ",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "home": "Home"
   }
 }
