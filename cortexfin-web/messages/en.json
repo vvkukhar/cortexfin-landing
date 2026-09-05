@@ -15,5 +15,24 @@
     "syncDesc": "Once online, data automatically syncs to the cloud via Supabase Edge Functions without loss.",
     "sharedTitle": "Shared Wallets",
     "sharedDesc": "Corporate-grade access hierarchy (Owner, Editor, Viewer). Anarchy rejected. You decide who sees what."
+  },
+  "Pro": {
+    "title": "Wislet Pro",
+    "subtitle": "Tools for those who build capital, not just count expenses. Unlock cloud sync, AI analytics, and unlimited power.",
+    "feat1": "Real-time cloud synchronization",
+    "feat2": "AI-driven financial advice",
+    "feat3": "Google Vision OCR receipt scanner",
+    "feat4": "Advanced PDF & CSV data export",
+    "feat5": "Unlimited wallets and shared members",
+    "price": "$8",
+    "period": "/mo",
+    "annual": "Or $80/year (Save 20%)",
+    "cta": "Upgrade to Pro"
+  },
+  "Footer": {
+    "faq": "FAQ",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "All rights reserved."
   }
 }

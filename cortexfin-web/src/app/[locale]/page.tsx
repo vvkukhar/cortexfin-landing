@@ -1,14 +1,16 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Smartphone, ChevronRight, WifiOff, Zap, Users } from 'lucide-react';
+import { Smartphone, ChevronRight, WifiOff, Zap, Users, CheckCircle2 } from 'lucide-react';
 
 export default function Home() {
   const tHero = useTranslations('Hero');
   const tFeatures = useTranslations('Features');
+  const tPro = useTranslations('Pro');
+  const tFooter = useTranslations('Footer');
 
   return (
-    <div className="min-h-screen bg-[#121212] flex flex-col relative overflow-hidden">
+    <div className="min-h-screen bg-[#121212] flex flex-col relative overflow-hidden font-sans">
       
       {/* HEADER */}
       <header className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto w-full z-20">
@@ -20,7 +22,6 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <main className="flex flex-col items-center justify-center text-center px-6 relative z-20 pt-20 pb-32">
-        {/* Фоновий глітч-градієнт */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 blur-[120px] rounded-full pointer-events-none" />
 
         <motion.div
@@ -80,59 +81,94 @@ export default function Home() {
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {/* Карточка 1 */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
               className="bg-[#121212] p-8 rounded-2xl border border-[#1E1E1E] hover:border-gray-600 transition-colors group"
             >
               <div className="bg-[#1a1a1a] w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <WifiOff className="h-6 w-6 text-gray-300" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{tFeatures('offlineTitle')}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed font-medium">
-                {tFeatures('offlineDesc')}
-              </p>
+              <p className="text-gray-400 text-sm leading-relaxed font-medium">{tFeatures('offlineDesc')}</p>
             </motion.div>
 
-            {/* Карточка 2 */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
               className="bg-[#121212] p-8 rounded-2xl border border-[#1E1E1E] hover:border-gray-600 transition-colors group"
             >
               <div className="bg-[#1a1a1a] w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Zap className="h-6 w-6 text-gray-300" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{tFeatures('syncTitle')}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed font-medium">
-                {tFeatures('syncDesc')}
-              </p>
+              <p className="text-gray-400 text-sm leading-relaxed font-medium">{tFeatures('syncDesc')}</p>
             </motion.div>
 
-            {/* Карточка 3 */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
               className="bg-[#121212] p-8 rounded-2xl border border-[#1E1E1E] hover:border-gray-600 transition-colors group"
             >
               <div className="bg-[#1a1a1a] w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Users className="h-6 w-6 text-gray-300" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{tFeatures('sharedTitle')}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed font-medium">
-                {tFeatures('sharedDesc')}
-              </p>
+              <p className="text-gray-400 text-sm leading-relaxed font-medium">{tFeatures('sharedDesc')}</p>
             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* PRO SECTION */}
+      <section className="relative z-20 py-32 px-6 bg-[#121212]">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-6xl mx-auto bg-[#181818] rounded-3xl p-8 md:p-16 border border-[#2A2A2A] shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row items-center justify-between"
+        >
+          <div className="md:w-1/2 mb-12 md:mb-0">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">{tPro('title')}</h2>
+            <p className="text-gray-400 mb-8 max-w-md text-lg leading-relaxed">{tPro('subtitle')}</p>
+            <div className="space-y-5">
+              {[tPro('feat1'), tPro('feat2'), tPro('feat3'), tPro('feat4'), tPro('feat5')].map((item, i) => (
+                <div key={i} className="flex items-center text-base font-medium text-gray-300">
+                  <CheckCircle2 className="h-6 w-6 mr-4 text-gray-500 shrink-0" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="md:w-1/3 w-full bg-[#121212] p-8 md:p-10 rounded-2xl border border-[#2A2A2A] text-center">
+            <div className="text-sm font-bold text-gray-500 mb-4 uppercase tracking-widest">Premium</div>
+            <div className="text-6xl font-black text-white mb-2 tracking-tighter">
+              {tPro('price')}<span className="text-2xl text-gray-500 font-medium tracking-normal">{tPro('period')}</span>
+            </div>
+            <p className="text-sm text-gray-500 mb-10 font-medium">{tPro('annual')}</p>
+            <motion.button 
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="w-full bg-white text-black py-4 rounded-xl font-black text-lg hover:bg-gray-200 transition-colors"
+            >
+              {tPro('cta')}
+            </motion.button>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-[#1E1E1E] bg-[#0a0a0a] py-12 relative z-20">
+        <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-sm font-medium">
+          <div className="font-black text-white text-2xl tracking-tighter mb-6 md:mb-0">
+            CORTEX<span className="text-gray-600">FIN</span> <span className="text-gray-500 text-sm font-medium tracking-normal ml-2">© 2026 {tFooter('rights')}</span>
+          </div>
+          <div className="flex space-x-8 text-gray-500">
+            <a href="#" className="hover:text-white transition-colors">{tFooter('faq')}</a>
+            <a href="#" className="hover:text-white transition-colors">{tFooter('privacy')}</a>
+            <a href="#" className="hover:text-white transition-colors">{tFooter('terms')}</a>
+          </div>
+        </div>
+      </footer>
 
     </div>
   );
