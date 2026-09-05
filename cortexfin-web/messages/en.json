@@ -58,6 +58,41 @@
     "q3": "Can I share my budget with my partner?",
     "a3": "Absolutely. You can invite members to specific wallets and assign them strict roles: Owner, Editor, or Viewer."
   },
+  "DownloadModal": {
+    "title": "Deploy Wislet",
+    "subtitle": "Choose your platform and take full control of your capital.",
+    "apkTitle": "Android APK (Direct)",
+    "apkDesc": "Version 0.4.4-beta • 94.4 MB • Direct install",
+    "apkBadge": "Instant",
+    "playTitle": "Google Play Store",
+    "playDesc": "Official store build • Auto-updates",
+    "playBadge": "Coming Soon",
+    "iosTitle": "Apple iOS (TestFlight)",
+    "iosDesc": "Closed beta pool • By invitation",
+    "iosBadge": "Private"
+  },
+  "Privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: September 2026",
+    "subtitle": "CortexFin Inc. is engineered around data sovereignty and zero-knowledge storage.",
+    "p1Title": "1. Zero-Knowledge Architecture",
+    "p1Desc": "Wislet operates on a local-first paradigm. Your financial transactions, budgets, and wallet states are committed directly to your device's local SQLite database. CortexFin Inc. does not sell, broker, or monetize your personal transactional records.",
+    "p2Title": "2. Cloud Synchronization & Security",
+    "p2Desc": "When cloud synchronization is active, payloads transit via TLS 1.3 encryption and reside within hardened Supabase infrastructure backed by Row-Level Security (RLS) protocols.",
+    "p3Title": "3. Data Portability & Hard Deletion",
+    "p3Desc": "You maintain 100% sovereign ownership over your financial logs. You can export complete datasets in standard CSV/PDF formats or execute permanent database erasure directly from device settings."
+  },
+  "Terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: September 2026",
+    "subtitle": "Legal operational standards governing CortexFin ecosystem usage.",
+    "t1Title": "1. Operational Scope",
+    "t1Desc": "Wislet is a decentralized personal finance operating system provided by CortexFin Inc. The application delivers organizational, analytic, and tracking tools and does not constitute registered banking or licensed fiduciary financial advice.",
+    "t2Title": "2. Access & Credential Custody",
+    "t2Desc": "Users maintain sole custody and responsibility for hardware credentials, device PIN codes, biometric locks, and shared wallet access delegations (Owner, Editor, Viewer).",
+    "t3Title": "3. Service Availability & Sync Limits",
+    "t3Desc": "While offline-first functionality ensures continuous local operations, real-time cloud sync and AI vision receipt scanning depend on active subscription tiers and network handshakes."
+  },
   "Footer": {
     "architecture": "Architecture",
     "faq": "FAQ",

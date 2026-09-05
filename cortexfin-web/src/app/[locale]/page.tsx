@@ -2,8 +2,10 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Smartphone, ChevronRight, WifiOff, Zap, Users, CheckCircle2 } from 'lucide-react';
+import { useState } from 'react';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
 import Waitlist from '../../components/Waitlist';
+import DownloadModal from '../../components/DownloadModal';
 import { Link } from '../../i18n/routing';
 
 export default function Home() {
@@ -12,9 +14,17 @@ export default function Home() {
   const tPro = useTranslations('Pro');
   const tFooter = useTranslations('Footer');
 
+  const [isDownloadOpen, setIsDownloadOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#121212] flex flex-col relative overflow-hidden font-sans">
       
+      {/* DOWNLOAD MODAL */}
+      <DownloadModal 
+        isOpen={isDownloadOpen} 
+        onClose={() => setIsDownloadOpen(false)} 
+      />
+
       {/* HEADER */}
       <header className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto w-full z-20">
         <Link href="/" className="text-2xl font-black text-white tracking-tighter hover:opacity-80 transition-opacity">
@@ -25,7 +35,10 @@ export default function Home() {
             {tFooter('architecture')}
           </Link>
           <LanguageSwitcher />
-          <button className="bg-white text-black px-5 py-2 rounded-md font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+          <button 
+            onClick={() => setIsDownloadOpen(true)}
+            className="bg-white text-black px-5 py-2 rounded-md font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+          >
             {tHero('downloadBtn')}
           </button>
         </div>
@@ -42,7 +55,12 @@ export default function Home() {
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">{tHero('title1')} <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-600">{tHero('title2')}</span></h1>
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed">{tHero('subtitle')}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="bg-white text-[#121212] px-8 py-4 rounded-lg font-black flex items-center justify-center transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)]">
+            <motion.button 
+              whileHover={{ scale: 1.02 }} 
+              whileTap={{ scale: 0.98 }} 
+              onClick={() => setIsDownloadOpen(true)}
+              className="bg-white text-[#121212] px-8 py-4 rounded-lg font-black flex items-center justify-center transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+            >
               <Smartphone className="mr-2 h-5 w-5" />
               {tHero('downloadBtn')}
             </motion.button>
@@ -81,12 +99,19 @@ export default function Home() {
             <div className="text-sm font-bold text-gray-500 mb-4 uppercase tracking-widest">Premium</div>
             <div className="text-6xl font-black text-white mb-2 tracking-tighter">{tPro('price')}<span className="text-2xl text-gray-500 font-medium tracking-normal">{tPro('period')}</span></div>
             <p className="text-sm text-gray-500 mb-10 font-medium">{tPro('annual')}</p>
-            <button className="w-full bg-white text-black py-4 rounded-xl font-black text-lg hover:bg-gray-200 transition-colors">{tPro('cta')}</button>
+            <button 
+              onClick={() => setIsDownloadOpen(true)}
+              className="w-full bg-white text-black py-4 rounded-xl font-black text-lg hover:bg-gray-200 transition-colors"
+            >
+              {tPro('cta')}
+            </button>
           </div>
         </motion.div>
       </section>
 
-      <Waitlist />
+      <div id="waitlist">
+        <Waitlist />
+      </div>
 
       {/* FOOTER */}
       <footer className="border-t border-[#1E1E1E] bg-[#0a0a0a] py-12 relative z-20">
@@ -95,8 +120,8 @@ export default function Home() {
           <div className="flex space-x-8 text-gray-500">
             <Link href="/architecture" className="hover:text-white transition-colors">{tFooter('architecture')}</Link>
             <Link href="/faq" className="hover:text-white transition-colors">{tFooter('faq')}</Link>
-            <a href="#" className="hover:text-white transition-colors">{tFooter('privacy')}</a>
-            <a href="#" className="hover:text-white transition-colors">{tFooter('terms')}</a>
+            <Link href="/privacy" className="hover:text-white transition-colors">{tFooter('privacy')}</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">{tFooter('terms')}</a>
           </div>
         </div>
       </footer>
