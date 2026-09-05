@@ -35,6 +35,19 @@
     "placeholder": "ceo@empire.com",
     "button": "Request Access"
   },
+  "Architecture": {
+    "badge": "Core Specification",
+    "title": "Built for Absolute Resilience",
+    "subtitle": "Wislet eliminates server lag and single points of failure through a decentralized offline-first architecture.",
+    "core1Title": "Local-First SQLite Engine",
+    "core1Desc": "Transactions are committed locally in under 2ms. Zero loading spinners, zero timeouts, zero dependence on network availability.",
+    "core2Title": "Bi-Directional Cloud Sync",
+    "core2Desc": "Supabase Edge Functions orchestrate seamless conflict-free state synchronization the millisecond an internet handshake occurs.",
+    "core3Title": "Hardware-Backed Security",
+    "core3Desc": "Local databases are guarded by OS-level biometric encryption (FaceID / Fingerprint). Your financial blueprint never leaves your control.",
+    "core4Title": "Vision AI & Neural OCR",
+    "core4Desc": "Receipt images are processed via computer vision pipelines, extracting amounts, categories, and merchant metadata automatically."
+  },
   "FAQ": {
     "title": "Frequently Asked Questions",
     "subtitle": "Everything you need to know about CortexFin architecture and security.",
@@ -46,6 +59,7 @@
     "a3": "Absolutely. You can invite members to specific wallets and assign them strict roles: Owner, Editor, or Viewer."
   },
   "Footer": {
+    "architecture": "Architecture",
     "faq": "FAQ",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",

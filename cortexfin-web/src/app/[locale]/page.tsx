@@ -20,7 +20,10 @@ export default function Home() {
         <Link href="/" className="text-2xl font-black text-white tracking-tighter hover:opacity-80 transition-opacity">
           CORTEX<span className="text-gray-600">FIN</span>
         </Link>
-        <div className="flex items-center">
+        <div className="flex items-center space-x-2">
+          <Link href="/architecture" className="hidden sm:inline-block text-sm font-bold text-gray-400 hover:text-white px-3 py-2 transition-colors">
+            {tFooter('architecture')}
+          </Link>
           <LanguageSwitcher />
           <button className="bg-white text-black px-5 py-2 rounded-md font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
             {tHero('downloadBtn')}
@@ -28,6 +31,7 @@ export default function Home() {
         </div>
       </header>
 
+      {/* HERO SECTION */}
       <main className="flex flex-col items-center justify-center text-center px-6 relative z-20 pt-20 pb-32">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 blur-[120px] rounded-full pointer-events-none" />
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="max-w-4xl mx-auto">
@@ -38,12 +42,20 @@ export default function Home() {
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">{tHero('title1')} <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-600">{tHero('title2')}</span></h1>
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed">{tHero('subtitle')}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="bg-white text-[#121212] px-8 py-4 rounded-lg font-black flex items-center justify-center transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)]"><Smartphone className="mr-2 h-5 w-5" />{tHero('downloadBtn')}</motion.button>
-            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="bg-[#181818] border border-gray-800 text-white px-8 py-4 rounded-lg font-bold flex items-center justify-center hover:border-gray-500 transition-colors">{tHero('exploreBtn')} <ChevronRight className="ml-2 h-5 w-5 text-gray-500" /></motion.button>
+            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="bg-white text-[#121212] px-8 py-4 rounded-lg font-black flex items-center justify-center transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)]">
+              <Smartphone className="mr-2 h-5 w-5" />
+              {tHero('downloadBtn')}
+            </motion.button>
+            <Link href="/architecture">
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="bg-[#181818] border border-gray-800 text-white px-8 py-4 rounded-lg font-bold flex items-center justify-center hover:border-gray-500 transition-colors">
+                {tHero('exploreBtn')} <ChevronRight className="ml-2 h-5 w-5 text-gray-500" />
+              </motion.div>
+            </Link>
           </div>
         </motion.div>
       </main>
 
+      {/* FEATURES BENTO GRID */}
       <section className="relative z-20 bg-[#0a0a0a] border-t border-[#1E1E1E] py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-5xl font-black text-white mb-16 text-center tracking-tight">{tFeatures('sectionTitle')}</motion.h2>
@@ -55,6 +67,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PRO SECTION */}
       <section className="relative z-20 py-32 px-6 bg-[#121212]">
         <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="max-w-6xl mx-auto bg-[#181818] rounded-3xl p-8 md:p-16 border border-[#2A2A2A] flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 mb-12 md:mb-0">
@@ -75,10 +88,12 @@ export default function Home() {
 
       <Waitlist />
 
+      {/* FOOTER */}
       <footer className="border-t border-[#1E1E1E] bg-[#0a0a0a] py-12 relative z-20">
         <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-sm font-medium">
           <div className="font-black text-white text-2xl tracking-tighter mb-6 md:mb-0">CORTEX<span className="text-gray-600">FIN</span> <span className="text-gray-500 text-sm font-medium tracking-normal ml-2">© 2026 {tFooter('rights')}</span></div>
           <div className="flex space-x-8 text-gray-500">
+            <Link href="/architecture" className="hover:text-white transition-colors">{tFooter('architecture')}</Link>
             <Link href="/faq" className="hover:text-white transition-colors">{tFooter('faq')}</Link>
             <a href="#" className="hover:text-white transition-colors">{tFooter('privacy')}</a>
             <a href="#" className="hover:text-white transition-colors">{tFooter('terms')}</a>
