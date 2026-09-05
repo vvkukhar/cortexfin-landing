@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Smartphone, ChevronRight, WifiOff, Zap, Users, CheckCircle2 } from 'lucide-react';
+import { Smartphone, ChevronRight, WifiOff, Zap, Users, CheckCircle2, ShieldCheck, ArrowUpRight } from 'lucide-react';
 import { useState } from 'react';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
 import Waitlist from '../../components/Waitlist';
@@ -45,16 +45,27 @@ export default function Home() {
       </header>
 
       {/* HERO SECTION */}
-      <main className="flex flex-col items-center justify-center text-center px-6 relative z-20 pt-20 pb-32">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 blur-[120px] rounded-full pointer-events-none" />
+      <main className="flex flex-col items-center justify-center text-center px-6 relative z-20 pt-16 pb-24">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-white/5 blur-[140px] rounded-full pointer-events-none" />
+        
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="max-w-4xl mx-auto">
           <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-xs font-bold text-gray-400 mb-8 uppercase tracking-widest backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
             <span>{tHero('betaStatus')}</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">{tHero('title1')} <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-600">{tHero('title2')}</span></h1>
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed">{tHero('subtitle')}</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+            {tHero('title1')} <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-600">
+              {tHero('title2')}
+            </span>
+          </h1>
+          
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed">
+            {tHero('subtitle')}
+          </p>
+          
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <motion.button 
               whileHover={{ scale: 1.02 }} 
               whileTap={{ scale: 0.98 }} 
@@ -70,6 +81,60 @@ export default function Home() {
               </motion.div>
             </Link>
           </div>
+
+          {/* GRAPHITE INTERACTIVE UI MOCKUP */}
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="w-full max-w-3xl mx-auto bg-[#181818] rounded-3xl border border-[#2A2A2A] shadow-[0_20px_80px_rgba(0,0,0,0.8)] overflow-hidden text-left"
+          >
+            {/* Window Bar */}
+            <div className="bg-[#121212] px-6 py-4 border-b border-[#2A2A2A] flex justify-between items-center text-xs font-mono text-gray-500">
+              <div className="flex space-x-2">
+                <span className="w-3 h-3 rounded-full bg-[#2A2A2A]"></span>
+                <span className="w-3 h-3 rounded-full bg-[#2A2A2A]"></span>
+                <span className="w-3 h-3 rounded-full bg-[#2A2A2A]"></span>
+              </div>
+              <div>Wislet Core Engine • SQLite Active</div>
+              <div className="flex items-center text-green-500 font-bold">
+                <ShieldCheck className="h-3.5 w-3.5 mr-1" /> Encrypted
+              </div>
+            </div>
+
+            {/* Dashboard Content */}
+            <div className="p-8">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <div>
+                  <div className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-1">Total Liquid Assets</div>
+                  <div className="text-4xl font-black text-white font-mono">$148,250.00</div>
+                </div>
+                <div className="bg-[#121212] border border-[#2A2A2A] px-4 py-2 rounded-xl flex items-center text-xs font-mono text-gray-400">
+                  <Zap className="h-3.5 w-3.5 text-green-400 mr-2" /> Supabase sync: 12ms
+                </div>
+              </div>
+
+              {/* Wallets Row */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="bg-[#121212] p-5 rounded-2xl border border-[#2A2A2A] flex justify-between items-center">
+                  <div>
+                    <div className="text-xs font-bold text-gray-500 uppercase">Treasury (Main)</div>
+                    <div className="text-lg font-mono font-bold text-white mt-1">$120,000.00</div>
+                  </div>
+                  <span className="text-[10px] font-black uppercase bg-white/10 text-white px-2 py-1 rounded">Owner</span>
+                </div>
+
+                <div className="bg-[#121212] p-5 rounded-2xl border border-[#2A2A2A] flex justify-between items-center">
+                  <div>
+                    <div className="text-xs font-bold text-gray-500 uppercase">Cortex Operations</div>
+                    <div className="text-lg font-mono font-bold text-white mt-1">$28,250.00</div>
+                  </div>
+                  <span className="text-[10px] font-black uppercase bg-white/10 text-white px-2 py-1 rounded">Editor</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
         </motion.div>
       </main>
 
@@ -121,7 +186,7 @@ export default function Home() {
             <Link href="/architecture" className="hover:text-white transition-colors">{tFooter('architecture')}</Link>
             <Link href="/faq" className="hover:text-white transition-colors">{tFooter('faq')}</Link>
             <Link href="/privacy" className="hover:text-white transition-colors">{tFooter('privacy')}</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">{tFooter('terms')}</a>
+            <Link href="/terms" className="hover:text-white transition-colors">{tFooter('terms')}</Link>
           </div>
         </div>
       </footer>
