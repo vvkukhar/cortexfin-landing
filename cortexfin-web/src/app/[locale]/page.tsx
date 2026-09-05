@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Smartphone, ChevronRight, WifiOff, Zap, Users, CheckCircle2 } from 'lucide-react';
+import LanguageSwitcher from '../../components/LanguageSwitcher';
 
 export default function Home() {
   const tHero = useTranslations('Hero');
@@ -15,9 +16,12 @@ export default function Home() {
       {/* HEADER */}
       <header className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto w-full z-20">
         <div className="text-2xl font-black text-white tracking-tighter">CORTEX<span className="text-gray-600">FIN</span></div>
-        <button className="bg-white text-black px-5 py-2 rounded-md font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-          {tHero('downloadBtn')}
-        </button>
+        <div className="flex items-center">
+          <LanguageSwitcher />
+          <button className="bg-white text-black px-5 py-2 rounded-md font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+            {tHero('downloadBtn')}
+          </button>
+        </div>
       </header>
 
       {/* HERO SECTION */}

@@ -1,6 +1,18 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import '../globals.css';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'CortexFin | Absolute Control',
+  description: 'Офлайн-first фінансова ОС з миттєвою синхронізацією. Керуй бюджетом за корпоративними стандартами.',
+  openGraph: {
+    title: 'CortexFin | Financial OS',
+    description: 'Будуй капітал, а не просто рахуй витрати. Wislet Beta 0.4.4 is Live.',
+    siteName: 'CortexFin Inc.',
+    type: 'website',
+  }
+};
 
 export default async function LocaleLayout({
   children,
